@@ -1,5 +1,5 @@
 {
-  "name": "hand detection python",
+  "name": "Notas",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."

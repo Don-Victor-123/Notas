@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $role = $_SESSION['role'];
 if ($role==='ADMIN') {
-  header('Location: ../admin/users.php');
+  header('Location: ../admin/index.php');
 } else {
   header('Location: ../notes/view.php');
 }

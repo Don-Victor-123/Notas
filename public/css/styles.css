@@ -1,0 +1,4 @@
+.note{border-bottom:1px solid #ccc;padding:4px;position:relative;}
+.note-meta{font-size:0.8em;color:#555;}
+.note-menu{cursor:pointer;position:absolute;right:0;top:0;}
+.popup{background:#eee;padding:4px;position:absolute;right:0;top:20px;}

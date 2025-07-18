@@ -6,6 +6,8 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  shift ENUM('Matutino','Vespertino','Nocturno') NOT NULL,
   role ENUM('ADMIN','USER') NOT NULL DEFAULT 'USER'
 );
 
@@ -13,6 +15,7 @@ CREATE TABLE users (
 CREATE TABLE groups (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
+  required_position VARCHAR(100) DEFAULT NULL,
   created_by INT NOT NULL,
   FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -32,6 +35,7 @@ CREATE TABLE notes (
   group_id INT NOT NULL,
   author_id INT NOT NULL,
   content TEXT,
+  status ENUM('Pendiente','En Proceso','Realizado') NOT NULL DEFAULT 'Pendiente',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (group_id)  REFERENCES groups(id) ON DELETE CASCADE,
